@@ -1,0 +1,27 @@
+{
+	"name" : "Attentio - Grab your team-mate's attention!",
+	"version" : "1.0",
+	"description" : "Grab your team-mates's attention!",
+	"permissions": ["activeTab", "declarativeContent", "storage"],
+	"background": {
+		"scripts": ["background.js"],
+		"persistent": false
+	},
+	"page_action": {
+		"default_popup": "popup.html",
+		"default_icon": {
+			"16": "images/icons/attentio16.png",
+			"32": "images/icons/attentio32.png",
+			"48": "images/icons/attentio48.png",
+			"128": "images/icons/attentio128.png"
+		}
+	},
+	"icons" : {
+		"16" : "images/icons/attentio16.png",
+		"32" : "images/icons/attentio32.png",
+		"48" : "images/icons/attentio48.png",
+		"128": "images/icons/attentio128.png"
+	},
+	"options_page": "options.html",
+	"manifest_version" : 2
+}
