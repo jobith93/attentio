@@ -1,0 +1,195 @@
+/*
+* Custom style sheet for attentio - Grab your team-mate's attention
+* Attentio - Chrome Extension to Grab your team-mate's attention
+* Author - Jobith <jobithmbasheer@gmail.com>
+*/
+
+/* Google Font imports */
+
+@import url('https://fonts.googleapis.com/css?family=Major+Mono+Display|Oxygen+Mono&display=swap');
+/* font-family: 'Oxygen Mono', monospace; */
+/* font-family: 'Major Mono Display', monospace; */
+
+
+/* general styles */
+
+body{
+    margin: 0;
+    padding: 0;
+    width: 320px;
+    overflow: hidden;
+
+    text-align: center;
+    font-family: 'Oxygen Mono', monospace;
+}
+
+.widget-popup__header {
+    height: 50px;
+    background-color: #fff;
+    padding: 0 16px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+    z-index: 999;
+    box-shadow: 0 3px 5px rgba(0, 0, 0, .25);
+}
+
+.widget-popup__header-logo {
+    width: 40px;
+    height: 40px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-image: url('../images/icons/attentio128.png');
+}
+
+.widget-popup__header-title {
+    font-size: 1em;
+    font-weight: bold;
+}
+
+.widget-popup__header-btns {
+    display: flex;
+}
+
+.widget-popup__header-btns .cir-btn {
+    padding: 0;
+    width: 24px;
+    height: 24px;
+    margin-right: 16px;
+    background-color: rgba(255, 255, 255, 0.13);
+    opacity: 0.5;
+    border: 0;
+    cursor: pointer;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.3s ease opacity, 0.3s ease transform;
+    outline: none;
+}
+
+.widget-popup__header-btns .cir-btn:hover{
+    opacity: 0.9;
+    transform: rotate(45deg);
+}
+
+.widget-popup__header-btns .cir-btn:last-child {
+    margin-right: 0;
+}
+
+.widget-popup__user {
+    background-color: #fff;
+    padding: 20px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-image: linear-gradient(45deg, #93a5cf 0%, #e4efe9 100%);
+    background-image: linear-gradient(-225deg, #473B7B 0%, #3584A7 51%, #30D2BE 100%);
+    background-image: linear-gradient(to right, #ed6ea0 0%, #ec8c69 100%);
+    background-image: linear-gradient(to top, #e14fad 0%, #f9d423 100%);
+    background-image: linear-gradient(-20deg, #fc6076 0%, #ff9a44 100%);
+}
+
+.widget-popup__user-image {
+    width: 75px;
+    height: 75px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-image: url('../images/icons/attentio128.png');
+    border-radius: 50%;
+    border: solid 1px #fff;
+    box-shadow: 0px 3px 10px rgba(0,0,0,0.75);
+}
+
+.widget-popup__user-title {
+    margin-top: 10px;
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #fff;
+    text-shadow: 0px 0px 10px rgba(0,0,0,0.75);
+}
+
+#select-user,
+#team-members {
+    width:100%;
+    height:auto;
+    background-color:white;
+    box-sizing:border-box;
+    padding: 10px 5px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    flex-direction:row;
+    flex-wrap:wrap;
+    align-content:flex-end;
+}
+figure {
+    width: 60px;
+    height: 60px;
+    display: block;
+    margin: 10px;
+    margin-bottom: 20px;
+    padding: 0;
+    box-sizing: content-box;
+    color: black;
+    cursor: pointer;
+}
+figure img {
+    width: 100%;
+    height: auto;
+    border-radius: 50%; 
+}
+#team-members figure img {
+    transition: opacity 0.26s ease-out;    
+}
+#team-members:hover img, #team-members:active img {
+    opacity: 0.3;
+}
+#team-members:hover img:hover, #team-members:active img:active {
+    opacity: 1;
+}
+figcaption {
+    font-size: 0.4rem;
+    text-align: center;
+}
+
+
+#select-user{
+    position: absolute;
+    background: rgba(0, 0, 0, 0.75);
+    position: absolute;
+    width: 100%;
+    height: 0%;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    transition: height 0.25s ease-in-out, opacity 0.5s ease-in-out;  
+}
+
+#select-user.open{
+    opacity: 1;
+    height: 100%;
+}
+
+#select-user figure{
+    opacity: 0;
+    color: #fff;
+
+    transition: opacity 0.3s ease-in-out;
+    transition-delay: 0.3s;
+}
+
+#select-user.open figure{
+    opacity: 1;
+    
+}
+
+
+
+
