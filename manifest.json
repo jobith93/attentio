@@ -1,6 +1,6 @@
 {
 	"name" : "Attentio - Grab your team-mate's attention!",
-	"version" : "1.0.1",
+	"version" : "1.1.0",
 	"description" : "Grab your team-mate's attention!",
 	"permissions": ["tabs", "activeTab", "declarativeContent", "storage", "notifications"],
 	"background": {
@@ -23,8 +23,9 @@
 		"128": "images/icons/attentio128.png"
 	},
 	"web_accessible_resources": [
-		"images/icons/attentio128.png"
+		"audio/notify.mp3"
 	],
+	"content_security_policy": "img-src 'self' http://206.189.136.1:3002/static/images/; object-src 'self'; script-src 'self'",
 	"incognito" : "split",
 	"manifest_version" : 2
 }

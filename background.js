@@ -19,19 +19,35 @@ chrome.runtime.onInstalled.addListener(function() {
 			}
 		})
 		chrome.storage.sync.get('username', function(val) {
-			if(val && val.username == data.receiver.username)
-				chrome.notifications.create(
-					`ping user ${data.sender.username} to ${data.receiver.username}`,
-					{   
-						type    : 'basic',
-						priority: 2,
-						silent  : false,
-						iconUrl : 'images/icons/attentio128.png',
-						title   : `Hey ${data.receiver.name}!`,
-						message : `${data.sender.name} wishes to grab your attention!`,
-		
-					}
-				)
+			if(val && val.username == data.receiver.username){
+				
+				fetch(data.sender.profile_picture)
+					.then((resp) => resp.blob())
+					.then(function(blob) {
+						// play notification audio
+						var notifyAudio = new Audio(chrome.runtime.getURL('audio/notify.mp3'));
+						notifyAudio.play();
+						// show notification
+						chrome.notifications.create(
+							`ping user ${data.sender.username} to ${data.receiver.username}`,
+							{   
+								type    : 'basic',
+								priority: 2,
+								silent  : false,
+								iconUrl : URL.createObjectURL(blob),
+								title   : `Hey ${data.receiver.name}!`,
+								message : `${data.sender.name} wishes to grab your attention!`,
+							}
+						)
+					})
+					.catch(function(error) {
+						// If there is any error you will catch them here
+						console.log('error', error);
+						
+					}); 
+				
+			}
+				
 		})
 		
 	})
