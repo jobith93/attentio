@@ -3,7 +3,8 @@
 // Author - Jobith <jobithmbasheer@gmail.com>
 
 //App URL
-var appURL = 'http://localhost:3002'
+var appURL = 'http://localhost:3002'	// local
+var appURL = 'http://206.189.136.1:3002'	// digitalocean
 
 var socket = io(appURL)
 
@@ -17,18 +18,22 @@ chrome.runtime.onInstalled.addListener(function() {
 				chrome.notifications.clear(notification)
 			}
 		})
-		chrome.notifications.create(
-			`ping user ${data.sender.username} to ${data.receiver.username}`,
-			{   
-				type    : 'basic',
-				priority: 2,
-				silent  : false,
-				iconUrl : 'images/icons/attentio128.png',
-				title   : `Hey ${data.sender.name}!`,
-				message : `${data.receiver.name} wishes to grab your attention!`,
-
-			}
-		)
+		chrome.storage.sync.get('username', function(val) {
+			if(val.username != data.sender.username)
+				chrome.notifications.create(
+					`ping user ${data.sender.username} to ${data.receiver.username}`,
+					{   
+						type    : 'basic',
+						priority: 2,
+						silent  : false,
+						iconUrl : 'images/icons/attentio128.png',
+						title   : `Hey ${data.sender.name}!`,
+						message : `${data.receiver.name} wishes to grab your attention!`,
+		
+					}
+				)
+		})
+		
 	})
 
 	chrome.storage.sync.get('username', function(val) {
