@@ -19,7 +19,7 @@ chrome.runtime.onInstalled.addListener(function() {
 			}
 		})
 		chrome.storage.sync.get('username', function(val) {
-			if(val && val.username == data.sender.username)
+			if(val && val.username == data.receiver.username)
 				chrome.notifications.create(
 					`ping user ${data.sender.username} to ${data.receiver.username}`,
 					{   
