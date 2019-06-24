@@ -27,8 +27,8 @@ chrome.runtime.onInstalled.addListener(function() {
 						priority: 2,
 						silent  : false,
 						iconUrl : 'images/icons/attentio128.png',
-						title   : `Hey ${data.sender.name}!`,
-						message : `${data.receiver.name} wishes to grab your attention!`,
+						title   : `Hey ${data.receiver.name}!`,
+						message : `${data.sender.name} wishes to grab your attention!`,
 		
 					}
 				)
