@@ -1,6 +1,6 @@
 {
 	"name" : "Attentio - Grab your team-mate's attention!",
-	"version" : "1.0",
+	"version" : "1.0.1",
 	"description" : "Grab your team-mate's attention!",
 	"permissions": ["tabs", "activeTab", "declarativeContent", "storage", "notifications"],
 	"background": {
