@@ -45,8 +45,15 @@ body{
 }
 
 .widget-popup__header-title {
+    text-align: center;
     font-size: 1em;
     font-weight: bold;
+    margin-left: 20px;
+}
+
+.widget-popup__header-title small{
+    font-size: 0.75em;
+    opacity: 0.5;
 }
 
 .widget-popup__header-btns {

@@ -8,6 +8,7 @@ const team_list = document.getElementById('team-members')
 const users_list = document.getElementById('select-user')
 const optionsBtn = document.getElementById('open-options')
 const reloadBtn = document.getElementById('open-reload')
+const version = document.getElementById('version')
 
 // getting values from background JS
 var background = chrome.extension.getBackgroundPage();
@@ -134,4 +135,6 @@ optionsBtn.onclick = function(element) {
 reloadBtn.onclick = function(element) {
 	chrome.runtime.reload();
 };
+
+version.innerHTML = chrome.runtime.getManifest().version;
 
