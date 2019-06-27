@@ -7,6 +7,7 @@ const userimage = document.getElementById('user-image')
 const team_list = document.getElementById('team-members')
 const users_list = document.getElementById('select-user')
 const optionsBtn = document.getElementById('open-options')
+const reloadBtn = document.getElementById('open-reload')
 
 // getting values from background JS
 var background = chrome.extension.getBackgroundPage();
@@ -67,10 +68,13 @@ function fetchTeam(url){
 
 						
 						if(socket.connected){
+							console.log('Socket is connected ✅')
 							socket.emit('ping user', { sender: storageValue.username, receiver: el.getAttribute('data-username') });
 						}
-						else
-							console.log('Socket is disconnected 💀');
+						else{
+							console.log('Socket is disconnected 💀')
+							chrome.runtime.reload()
+						}
 
 					});
 					// Append all our elements
@@ -113,12 +117,10 @@ function fetchTeam(url){
 			})
 		});
 		
-		
 	})
 	.catch(function(error) {
 		// If there is any error you will catch them here
 		console.log('error', error);
-		
 	}); 
 }
 
@@ -126,12 +128,10 @@ fetchTeam(url)
 
 
 optionsBtn.onclick = function(element) {
-	// chrome.tabs.create({ 'url': 'chrome://extensions/?options=' + chrome.runtime.id });
 	users_list.classList.toggle('open');
 };
 
-    // /* Connects to the socket server */
-	// var socket = io.connect('http://localhost:3002');
-	// socket.on('connect', function() {
-	//     console.log('Client connected');
-	// });
+reloadBtn.onclick = function(element) {
+	chrome.runtime.reload();
+};
+

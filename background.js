@@ -81,11 +81,11 @@ chrome.runtime.onInstalled.addListener(function() {
 
 chrome.runtime.onStartup.addListener(function () {
 	if(!socket.connected){
-		socket = io(appURL)
-		console.log('connected again')
+		chrome.runtime.reload()
+		console.log('reload')
 	}
 	else{
-		console.log('alreday connected')
+		console.log('already connected')
 		setup()
 	}
 })
