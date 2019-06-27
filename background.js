@@ -8,9 +8,7 @@ var appURL = 'http://206.189.136.1:3002'	// digitalocean
 
 var socket = io(appURL)
 
-
-chrome.runtime.onInstalled.addListener(function() {
-
+function setup(){
 	socket.on('ping user', function(data){
 
 		chrome.notifications.getAll((notifications) => {
@@ -55,8 +53,12 @@ chrome.runtime.onInstalled.addListener(function() {
 	chrome.storage.sync.get('username', function(val) {
 		if(!val) chrome.storage.sync.set({username: 'sam'})
 	})
+}
 
-	
+
+chrome.runtime.onInstalled.addListener(function() {
+
+	setup()
 
 	chrome.declarativeContent.onPageChanged.removeRules(undefined, function(){
 
@@ -75,18 +77,15 @@ chrome.runtime.onInstalled.addListener(function() {
 
 	})
 
-	// listen for when someone clicks the page action
-	chrome.pageAction.onClicked.addListener( function () {
-		// query the current tab on the current window
-		chrome.tabs.query( { active: true, currentWindow: true }, function ( tabs ) {
-			alert('Show Action Button Clicked!')
+})
 
-			// exceute the main.js script on this tab
-			// chrome.tabs.executeScripts(
-			// 	tabs[0].id, 
-			// 	{ file: 'main.js' }
-			// )
-		})
-	})
-
+chrome.runtime.onStartup.addListener(function () {
+	if(!socket.connected){
+		socket = io(appURL)
+		console.log('connected again')
+	}
+	else{
+		console.log('alreday connected')
+		setup()
+	}
 })
