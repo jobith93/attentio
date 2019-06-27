@@ -70,6 +70,11 @@ body{
     outline: none;
 }
 
+.widget-popup__header-btns .cir-btn img{
+    width: 100%;
+    height: auto;
+}
+
 .widget-popup__header-btns .cir-btn:hover{
     opacity: 0.9;
     transform: rotate(45deg);
