@@ -25,7 +25,7 @@
 	"web_accessible_resources": [
 		"audio/notify.mp3"
 	],
-	"content_security_policy": "img-src 'self' http://206.189.136.1:3002/static/images/; object-src 'self'; script-src 'self'",
+	"content_security_policy": "img-src 'self' http://localhost:3002/static/images/; object-src 'self'; script-src 'self'",
 	"incognito" : "split",
 	"manifest_version" : 2
 }

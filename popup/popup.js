@@ -44,7 +44,7 @@ function fetchTeam(url){
 			// Get the team members
 			team_list.innerHTML = '';
 			users_list.innerHTML = '';
-			let team_members = data;
+			let team_members = data.users;
 			return team_members.map(function(member) { 
 
 				// Map through the results and for each run the code below
