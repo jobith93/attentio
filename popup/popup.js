@@ -124,6 +124,7 @@ function fetchTeam(url){
 }
 
 fetchTeam(url)
+
 optionsBtn.onclick = function(element) {
 	users_list.classList.toggle('open');
 };
