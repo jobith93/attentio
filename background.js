@@ -3,8 +3,8 @@
 // Author - Jobith <jobithmbasheer@gmail.com>
 
 //App URL
-var appURL = 'http://localhost:3002'	// local
-var appURL = 'http://206.189.136.1:3002'	// digitalocean
+// var appURL = 'http://localhost:3002'		// local
+var appURL = 'http://206.189.136.1:3002'	// DigitalOcean
 
 var socket = null
 
@@ -18,6 +18,7 @@ chrome.storage.sync.get('username', function(val) {
 
 
 function setup(){
+
 	socket.on('ping user', function(data){
 
 		chrome.notifications.getAll((notifications) => {

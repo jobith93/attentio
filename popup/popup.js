@@ -13,7 +13,6 @@ const version = document.getElementById('version')
 // getting values from background JS
 var background = chrome.extension.getBackgroundPage();
 var socket = background.window['socket']
-console.log(background.window);
 
 const url = `${background.window['appURL']}/users`
 
@@ -125,6 +124,8 @@ function fetchTeam(url){
 }
 
 fetchTeam(url)
+
+setTimeout(fetchTeam(url), 1000);
 
 
 optionsBtn.onclick = function(element) {
