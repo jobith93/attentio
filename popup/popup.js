@@ -50,7 +50,7 @@ function fetchTeam(url){
 				// Map through the results and for each run the code below
 				if(storageValue.username != member.username){
 					//  Create the elements we need
-					let figure = createNode('figure', 'member')
+					let figure = createNode('figure', `member ${member.status}`)
 					let	img = createNode('img', 'profile')
 					let	figcaption = createNode('figcaption', 'name')
 					// Add the source of the image to be the src of the img element
@@ -66,7 +66,6 @@ function fetchTeam(url){
 							// console.log(event.target.parentNode);
 							el = event.target.parentNode
 						}
-
 						
 						if(socket.connected){
 							console.log('Socket is connected ✅')

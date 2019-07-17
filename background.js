@@ -4,9 +4,18 @@
 
 //App URL
 var appURL = 'http://localhost:3002'	// local
-var appURL = 'http://206.189.136.1:3002'	// digitalocean
+// var appURL = 'http://206.189.136.1:3002'	// digitalocean
 
-var socket = io(appURL)
+var socket = null
+
+chrome.storage.sync.get('username', function(val) {
+	if(!val){
+		chrome.storage.sync.set({username: 'sam'})
+		return
+	} 
+	socket = io(appURL, { query: `username=${val.username}` })
+})
+
 
 function setup(){
 	socket.on('ping user', function(data){
@@ -18,7 +27,6 @@ function setup(){
 		})
 		chrome.storage.sync.get('username', function(val) {
 			if(val && val.username == data.receiver.username){
-				
 				fetch(data.sender.profile_picture)
 					.then((resp) => resp.blob())
 					.then(function(blob) {
@@ -34,7 +42,7 @@ function setup(){
 								silent  : false,
 								iconUrl : URL.createObjectURL(blob),
 								title   : `Hey ${data.receiver.name}!`,
-								message : `${data.sender.name} wishes to grab your attention!`,
+								message : data.message,
 							}
 						)
 					})

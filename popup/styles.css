@@ -154,12 +154,18 @@ figure {
     box-sizing: content-box;
     color: black;
     cursor: pointer;
+    position: relative;
 }
 figure img {
     width: 100%;
     height: auto;
     border-radius: 50%; 
 }
+
+#team-members figure.offline img{
+    filter: grayscale(100%)
+} 
+
 #team-members figure img {
     transition: opacity 0.26s ease-out;    
 }
@@ -169,6 +175,7 @@ figure img {
 #team-members:hover img:hover, #team-members:active img:active {
     opacity: 1;
 }
+
 figcaption {
     font-size: 0.4rem;
     text-align: center;
