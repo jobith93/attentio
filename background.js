@@ -4,7 +4,7 @@
 
 //App URL
 var appURL = 'http://localhost:3002'	// local
-// var appURL = 'http://206.189.136.1:3002'	// digitalocean
+var appURL = 'http://206.189.136.1:3002'	// digitalocean
 
 var socket = null
 
