@@ -124,10 +124,6 @@ function fetchTeam(url){
 }
 
 fetchTeam(url)
-
-setTimeout(fetchTeam(url), 1000);
-
-
 optionsBtn.onclick = function(element) {
 	users_list.classList.toggle('open');
 };
