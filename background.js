@@ -18,16 +18,18 @@ chrome.storage.sync.get('username', function(val) {
 
 
 function setup(){
-
 	socket.on('ping user', function(data){
-
+		// clear all existing notifications
 		chrome.notifications.getAll((notifications) => {
 			for (const notification in notifications) {
 				chrome.notifications.clear(notification)
 			}
 		})
+
+		// get the username and check if the message is meant for this user
 		chrome.storage.sync.get('username', function(val) {
 			if(val && val.username == data.receiver.username){
+				// fetch profile picture
 				fetch(data.sender.profile_picture)
 					.then((resp) => resp.blob())
 					.then(function(blob) {
@@ -50,13 +52,11 @@ function setup(){
 					.catch(function(error) {
 						// If there is any error you will catch them here
 						console.log('error', error);
-						
 					}); 
 				
 			}
 				
 		})
-		
 	})
 
 	chrome.storage.sync.get('username', function(val) {
@@ -89,7 +89,7 @@ chrome.runtime.onInstalled.addListener(function() {
 })
 
 chrome.runtime.onStartup.addListener(function () {
-	if(!socket.connected){
+	if(!socket || !socket.connected){
 		chrome.runtime.reload()
 		console.log('reload')
 	}
