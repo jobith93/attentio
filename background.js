@@ -18,7 +18,7 @@ chrome.storage.sync.get('username', function(val) {
 
 
 function setup(){
-	socket.on('ping user', function(data){
+	socket.on('pingUser', function(data){
 		// clear all existing notifications
 		chrome.notifications.getAll((notifications) => {
 			for (const notification in notifications) {
@@ -38,7 +38,7 @@ function setup(){
 						notifyAudio.play();
 						// show notification
 						chrome.notifications.create(
-							`ping user ${data.sender.username} to ${data.receiver.username}`,
+							`pingUser ${data.sender.username} to ${data.receiver.username}`,
 							{   
 								type    : 'basic',
 								priority: 2,

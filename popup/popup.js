@@ -69,7 +69,7 @@ function fetchTeam(url){
 						
 						if(socket.connected){
 							console.log('Socket is connected ✅')
-							socket.emit('ping user', { sender: storageValue.username, receiver: el.getAttribute('data-username') });
+							socket.emit('pingUser', { sender: storageValue.username, receiver: el.getAttribute('data-username') });
 						}
 						else{
 							console.log('Socket is disconnected 💀')
