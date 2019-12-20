@@ -226,11 +226,12 @@ figcaption {
 }
 
 .widget-popup__footer-logo {
-    width: 100px;
-    height: 20px;
-    background-size: cover;
-    background-repeat: no-repeat;
     background-image: url('../images/three38-logo.png');
+    width: 150px;
+    height: 25px;
+    background-position: center center;
+    background-size: contain;
+    background-repeat: no-repeat;
 }
 
 
